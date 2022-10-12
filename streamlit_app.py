@@ -3,6 +3,7 @@ st.set_page_config(layout="wide")  # increase the width of web page
 import pandas as pd
 import altair as alt
 from re import U
+# from st_aggrid import GridOptionsBuilder, AgGrid, GridUpdateMode, DataReturnMode
 
 st.title("What are the factors can impact innovation in America?")
 
@@ -68,7 +69,9 @@ st.subheader("It is not surprising that MA and CA are within the top states, but
 
 st.write("Dataset -> Inventors in America: Innovation Rates by Childhood Commuting Zone, Gender, and Parent Income")
 inventor = load_data('invention.csv')
-st.write(inventor)
+if st.checkbox("Hit me if you want to see raw data"):
+    st.write(inventor)
+
 
 avg_inventor_state_chart = alt.Chart(inventor).mark_bar().encode(
    y= alt.Y("par_state", title = "Childhood State"),
@@ -116,8 +119,6 @@ zone_brush = alt.selection_multi(fields=['par_czname'])
 
 top3State = ['Vermont', 'California', 'Massachusetts']
 top3InventorState = inventor[inventor['par_state'].isin(top3State)]
-
-st.write(top3InventorState)
 
 
 state_chart = alt.Chart(top3InventorState).mark_bar().encode(
@@ -211,43 +212,44 @@ layer = alt.layer(
 )
 st.altair_chart(layer)
 
-st.subheader("Cohort Range (1960 - 1965) has the highest average number of patents grants per individual")
-nearest = alt.selection(type='single', nearest=True, on='mouseover',fields=['x'], empty='none')
-line = alt.Chart(df).mark_bar(interpolate='basis').encode(
-                   x= alt.X('year', scale=alt.Scale(zero=False), title = "Calendar Year"), 
-                   y= alt.Y(field = "num_grants", aggregate = 'mean', type ='quantitative', sort='-y', scale=alt.Scale(zero=False), title = "average number of patents grants per individual"),
-                   color= alt.Color('cohort')
-                )
-selectors = alt.Chart(df).mark_point().encode(
-    x='x:Q',
-    opacity=alt.value(0)).add_selection(nearest)
+st.text("Cohort Range (1960 - 1965) has the highest average number of patents grants per individual")
 
-# Draw points on the line, and highlight based on selection
-points = line.mark_point().encode(
-    opacity=alt.condition(nearest, alt.value(1), alt.value(0))
-)
-# Draw text labels near the points, and highlight based on selection
-text = line.mark_text(align='left', dx=5, dy=-5).encode(
-    text=alt.condition(nearest, 'y:Q', alt.value(' '))
-)
-# Draw a rule at the location of the selection
-rules = alt.Chart(df).mark_rule(color='gray').encode(
-    x='x:Q',
-).transform_filter(
-    nearest
-)
-# Put the five layers into a chart and bind the data
-layer2 = alt.layer(
-    line, selectors, points, rules, text
-).properties(
-    width=600, height=300
-)
-st.altair_chart(layer2)
+# nearest = alt.selection(type='single', nearest=True, on='mouseover',fields=['x'], empty='none')
+# line = alt.Chart(df).mark_bar(interpolate='basis').encode(
+#                    x= alt.X('year', scale=alt.Scale(zero=False), title = "Calendar Year"), 
+#                    y= alt.Y(field = "num_grants", aggregate = 'mean', type ='quantitative', sort='-y', scale=alt.Scale(zero=False), title = "average number of patents grants per individual"),
+#                    color= alt.Color('cohort')
+#                 )
+# selectors = alt.Chart(df).mark_point().encode(
+#     x='x:Q',
+#     opacity=alt.value(0)).add_selection(nearest)
 
-st.subheader("Calendar year 2003 has the highest average number of patents grants per individual.")               
+# # Draw points on the line, and highlight based on selection
+# points = line.mark_point().encode(
+#     opacity=alt.condition(nearest, alt.value(1), alt.value(0))
+# )
+# # Draw text labels near the points, and highlight based on selection
+# text = line.mark_text(align='left', dx=5, dy=-5).encode(
+#     text=alt.condition(nearest, 'y:Q', alt.value(' '))
+# )
+# # Draw a rule at the location of the selection
+# rules = alt.Chart(df).mark_rule(color='gray').encode(
+#     x='x:Q',
+# ).transform_filter(
+#     nearest
+# )
+# # Put the five layers into a chart and bind the data
+# layer2 = alt.layer(
+#     line, selectors, points, rules, text
+# ).properties(
+#     width=600, height=300
+# )
+# st.altair_chart(layer2)
+
+# st.subheader("Calendar year 2003 has the highest average number of patents grants per individual.")               
 st.markdown(
     """
-    #### Inventors aged around 40 (=2003 -1963) are most productive based on the average number of patents grants per individual :sunglasses:
+    #### Inventors aged around 40 are most productive based on the average number of patents grants per individual :sunglasses:
     """
     )
 
