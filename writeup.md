@@ -3,6 +3,7 @@
 
 
 TODO: Short abstract describing the main goals and how you achieved them.
+This project aims to discover how social and economic factors impact innovation in America.
 
 ## Project Goals
 
