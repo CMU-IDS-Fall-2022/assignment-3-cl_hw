@@ -1,10 +1,9 @@
 # Project name
+![image](https://user-images.githubusercontent.com/75749274/195230683-57aa875d-6af2-4b65-9964-c6d949647d1b.png)
 
-![A screenshot of your application. Could be a GIF.](screenshot.png)
-
-TODO: Update screenshot
 
 TODO: Short abstract describing the main goals and how you achieved them.
+This project aims to discover how social and economic factors impact innovation in America.
 
 ## Project Goals
 
