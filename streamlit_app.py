@@ -282,11 +282,10 @@ with col2:
     st.metric('Num of Grants', '{:.2%}'.format(Noslice_num_grants))
 
 
-st.markdown("This project was created by Cuiting Li and Haoyu Wang for the [Interactive Data Science](https://dig.cmu.edu/ids2022) course at [Carnegie Mellon University](https://www.cmu.edu).")
+st.write("")
+inventor_clean = inventor
 
-inventor_clean = load_data('invention_clean.csv')
-
-st.subheader("Correlation between Invention Rate and Parent Income")
+st.header("Part3: Correlation between Invention Rate and Parent Income")
 
 cols = st.columns(2)
 with cols[0]:
@@ -296,62 +295,62 @@ with cols[1]:
 
 top_20_chart = alt.Chart(inventor_clean).mark_bar().encode(
         alt.Y(field = "inventor_pq_5", aggregate = 'average', type ='quantitative', title = 'children inventor rate', scale=alt.Scale(domain=(0.002, 0.02))),
-        alt.X("par_state", title = 'top 20 states with highest invention rate', sort = '-y'),
+        alt.X("par_state", title = 'top 25 states with highest invention rate', sort = '-y'),
 ).properties(
-   height=500, width=350
+   height=500, width=730
 ).transform_window(
     rank='rank(inventor_pq_5)',
     sort=[alt.SortField('inventor_pq_5', order='descending')]
 ).transform_filter(
-    (alt.datum.rank < 40)
+    (alt.datum.rank < 66)
 )
 
 top_20_40_chart = alt.Chart(inventor_clean).mark_bar().encode(
         alt.Y(field = "inventor_pq_4", aggregate = 'average', type ='quantitative', title = 'children inventor rate', scale=alt.Scale(domain=(0.002, 0.02))),
-        alt.X("par_state", title = 'top 20 states with highest invention rate', sort = '-y'),
+        alt.X("par_state", title = 'top 25 states with highest invention rate', sort = '-y'),
 ).properties(
-   height=500, width=350
+   height=500, width=730
 ).transform_window(
     rank='rank(inventor_pq_4)',
     sort=[alt.SortField('inventor_pq_4', order='descending')]
 ).transform_filter(
-    (alt.datum.rank < 40)
+    (alt.datum.rank < 66)
 )
 
 top_40_60_chart = alt.Chart(inventor_clean).mark_bar().encode(
         alt.Y(field = "inventor_pq_3", aggregate = 'average', type ='quantitative', title = 'children inventor rate', scale=alt.Scale(domain=(0.002, 0.02))),
-        alt.X("par_state", title = 'top 20 states with highest invention rate', sort = '-y'),
+        alt.X("par_state", title = 'top 25 states with highest invention rate', sort = '-y'),
 ).properties(
-   height=500, width=350
+   height=500, width=730
 ).transform_window(
     rank='rank(inventor_pq_3)',
     sort=[alt.SortField('inventor_pq_3', order='descending')]
 ).transform_filter(
-    (alt.datum.rank < 40)
+    (alt.datum.rank < 66)
 )
 
 top_60_80_chart = alt.Chart(inventor_clean).mark_bar().encode(
         alt.Y(field = "inventor_pq_2", aggregate = 'average', type ='quantitative', title = 'children inventor rate', scale=alt.Scale(domain=(0.002, 0.02))),
-        alt.X("par_state", title = 'top 20 states with highest invention rate', sort = '-y'),
+        alt.X("par_state", title = 'top 25 states with highest invention rate', sort = '-y'),
 ).properties(
-   height=500, width=350
+   height=500, width=730
 ).transform_window(
     rank='rank(inventor_pq_2)',
     sort=[alt.SortField('inventor_pq_2', order='descending')]
 ).transform_filter(
-    (alt.datum.rank < 40)
+    (alt.datum.rank < 66)
 )
 
 bottom_20_chart =  alt.Chart(inventor_clean).mark_bar().encode(
         alt.Y(field = "inventor_pq_1", aggregate = 'average', type ='quantitative', title = 'children inventor rate', scale=alt.Scale(domain=(0.002, 0.02))),
-        alt.X("par_state", title = 'top 20 states with highest invention rate', sort = '-y'),
+        alt.X("par_state", title = 'top 25 states with highest invention rate', sort = '-y'),
 ).properties(
-   height=500, width=350
+   height=500, width=730
 ).transform_window(
     rank='rank(inventor_pq_1)',
     sort=[alt.SortField('inventor_pq_1', order='descending')]
 ).transform_filter(
-    (alt.datum.rank < 40)
+    (alt.datum.rank < 66)
 )
 
 colss = st.columns(2)
@@ -382,3 +381,4 @@ with colss[1]:
 st.write("By selecting different parent income in two columns, we can clearly see that parent income has a significant impact on children invention rate. The higher income of a parent, the great possiblity that his/her children would become inventors")
 
 
+st.markdown("This project was created by Cuiting Li and Haoyu Wang for the [Interactive Data Science](https://dig.cmu.edu/ids2022) course at [Carnegie Mellon University](https://www.cmu.edu).")
