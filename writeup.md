@@ -1,6 +1,10 @@
 # How social and economic factors impact innovation in America? <br />
 We used data source from https://opportunityinsights.org/data/. Specifically, our team has focused on two main aspects - neighborhood commuting zone & parent income.
-By visualizing the relationship between commuting zone and innovation rate and parental income and their children innovation rate, we are able to conclude that neighborhood does impact innovation in America. East and West coast have higher invention rates than other parts of the U.S.  <br />
+By visualizing the relationship between commuting zone and innovation rate and parental income and their children innovation rate, we are able to conclude that neighborhood and parent income do impact innovation in America. <br />
+
+East and West coast have higher invention rates than other parts of the U.S.  <br />
+The higher income of a parent, the great possibility that his/her children would become inventors.
+
 ### Based on the interactive charts from our app, Vermont is the 1st inventor state in the U.S. 
 ![image](https://user-images.githubusercontent.com/75749274/195476987-e54a8120-7b2f-4975-9e57-b92aedbe7705.png)
 ## Project Goals
@@ -50,7 +54,9 @@ TODO: **An overview of your development process.** Describe how the work was spl
 ## Success Story
 
 The neighborhood does impact innovation in America. East and West coast have higher invention rates than other parts of the U.S.  Based on the interactive charts from our app, Vermont is the 1st inventor state in the U.S.  Massachusetts ranks 2nd place with a focus on the Drugs and Medical patent category. The outstanding performance in the Computers and Communications field wins California 3rd place.  <br />
-### Fun facts: 
+By selecting different parent income in two columns, we can clearly see that parent income has a significant impact on children invention rate. The higher income of a parent, the great possiblity that his/her children would become inventors. 
+
+### Something interesting: 
 •	The birth year between 1960 and 1965 has the highest average number of patent grants per individual; Inventors aged around 40 are most productive based on the average number of patent grants per individual 😎.  <br />
 • Massachusetts is the Drugs and Medical inventor incubator state (0.0013); And California, no surprise, is the state where Computers and Communications inventors grew up. 
 
