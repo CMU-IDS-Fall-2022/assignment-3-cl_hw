@@ -31,9 +31,11 @@ def get_slice_membership(df, states, cohort_range):
         labels &= df['cohort'] <= cohort_range[1]
     return labels
 
-#############################################################################################################
-################################################### Main Code ###############################################
-#############################################################################################################
+########################################################################################################################################
+############################################################### Main Code ##############################################################
+########################################################################################################################################
+
+################################################################  Part II  #############################################################
 st.header("Part1. The Importance of Exposure to Innovation")
 df = load_data('Innovation by Current State, Year of Birth and Age.csv')
 st.text("Let's look at the dataset - Innovation Rates by Current State, Year of Birth and Age")
@@ -59,13 +61,8 @@ avg_grant_rate_by_state =  alt.Chart(data_sums).mark_point().encode(
                                 ).properties(
                                               width=900, height=800
                                             ).add_selection(brush).interactive()
-line = alt.Chart().mark_rule(color='pink').encode(
-      y='mean(num_grants):Q',
-      size=alt.SizeValue(3)
-).transform_filter(
-    brush
-)
-st.write(alt.layer(bars, line, data=data_sums))
+
+st.write(avg_grant_rate_by_state)
 
 st.subheader("The top 3 states are Vermont, Masschusetts and California")
 st.markdown("*The pink line shows the overall mean")
@@ -175,7 +172,7 @@ st.text("-> Santa Barbara, CA has one highly cited category which is 6 - Others"
 st.subheader("Among the top 5 highly cited zones, Vermont shares 2 out of 5. And Vermont’s patent category covers 6 categories out of 7. That concludes why Vermont is the top 1 inventor state in the U.S.  ")
 st.subheader("Massachusetts is the Drugs and Medical inventor incubator state (0.0013); And California, no surprise, is the state where Computers and Communications inventors grew up. ")
 
-############################################  Part II  #####################################################
+################################################################  Part II  ##############################################################
 
 st.header("Part2. The year most inventors were born")
 if st.checkbox("Hit me if you want to check on the raw data"):
@@ -290,7 +287,7 @@ with col2:
 
 st.write("")
 inventor_clean = inventor
-
+################################################################  Part III  ##############################################################
 st.header("Part3: Correlation between Invention Rate and Parent Income")
 
 cols = st.columns(2)
