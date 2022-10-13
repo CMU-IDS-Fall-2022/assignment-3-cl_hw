@@ -1,17 +1,22 @@
 # Project name
 ![image](https://user-images.githubusercontent.com/75749274/195230683-57aa875d-6af2-4b65-9964-c6d949647d1b.png)
-
-
-TODO: Short abstract describing the main goals and how you achieved them.
-This project aims to discover how social and economic factors impact innovation in America.
+How social and economic factors impact innovation in America?
+We used data source from https://opportunityinsights.org/data/. Specifically, our team has focused on two main aspects - neighborhood commuting zone & parent income.
+By visualizing the relationship between commuting zone and innovation rate and parental income and children innovation rate, we are able to conclude that neighborhood does impact innovation in America. East and West coast have higher invention rates than other parts of the U.S.  Based on the interactive charts from our app, Vermont is the 1st inventor state in the U.S.  Massachusetts ranks 2nd place with a focus on the Drugs and Medical patent category. The outstanding performance in the Computers and Communications field wins California 3rd place. 
 
 ## Project Goals
 
-TODO: **A clear description of the goals of your project.** Describe the question that you are enabling a user to answer. The question should be compelling and the solution should be focused on helping users achieve their goals. 
+This project aims to discover how social and economic factors impact innovation in America.
 
 ## Design
 
-TODO: **A rationale for your design decisions.** How did you choose your particular visual encodings and interaction techniques? What alternatives did you consider and how did you arrive at your ultimate choices?
+Define a goal by reviewing the dataset, then discover insights by asking various hypotheses and testing them out.
+Part1. The relationship between commuting zone(/state) and innovation
+We use a bar chart to list states on the x-axis and the mean of num_grants on the y-axis (descending order). This design can help audiences easily spot which state(s) has the highest average of num_grants. At first, using the scatter plot, the bar chart is more straightforward when there are many unique values on the x-axis.   Based on a similar reason, the bar chart is used for comparing the average inventor rate by state and commuting zones. 
+Part2. The relationship between the year of born and innovation
+I use multiple line charts to show the relationship between birth year and the average number of patents granted per individual. By adding age as the color category, this chart shows that 1963 is the year of birth with the most average number of grants, and inventors aged 40 are the most productive. Initially, I chose points instead of the line, but it isn't easy to find insights from many points. 
+
+
 
 ## Development
 
