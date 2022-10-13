@@ -4,8 +4,12 @@ import pandas as pd
 import numpy as np
 import altair as alt
 from re import U
+from PIL import Image
 
 st.title("What are the factors that can impact innovation in America?")
+image = Image.open('unleashing-innovation-image.jpg')
+st.image(image, caption ='Innovation')
+
 st.write("We will explore this question in three parts - children exposure to innovation, parent income, and the year inventors were born ")
 st.write()
 @st.cache(allow_output_mutation=True)  # add caching so we load the data only once
