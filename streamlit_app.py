@@ -7,7 +7,7 @@ from re import U
 
 st.title("What are the factors can impact innovation in America?")
 
-@st.cache  # add caching so we load the data only once
+@st.cache(allow_output_mutation=True)  # add caching so we load the data only once
 def load_data(file_path):
     return pd.read_csv(file_path)
 @st.cache
