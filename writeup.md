@@ -21,7 +21,8 @@ We use a point chart to list states on the y-axis and the mean of grant_rate on 
 ### Part2. The relationship between the year of birth and innovation
 We use multiple line charts to show the relationship between birth year and the average number of patents granted per individual. By adding age as the color category, this chart shows that 1963 is the year of birth with the most average number of grants, and inventors aged 40 are the most productive. Initially, I chose point chart instead of the line chart, but it isn't easy to find insights from many data points. 
 
-### Part3. The relationship between parent income and innovation
+### Part3. The relationship between parent income and children innovation rate
+The intention for this part to show how parent's income affact children innovation. The original dataset divides all parent's into five categories. The top 20%, 20%-40%, 40%-60%, 60%-80% and the bottom 20%. We want our audience to make comparsion between two income categories and see the children invention rate. We make two bar chart side by side, one is reference group and another one is the experiment group. By keep the reference group the same such as choosing it as the top 20% income, and change the experiment group to 20-40%, 40-60%, 60-80% or bottom 20%, we can see the difference. By switching different group on the right column, we will able to see that the higher parent income, the higher children innovation rate. The alternative method of showing the relationship between parent income and children innovation rate is use bar chart with five column, each representing top 20%, 20%-40%, 40%-60%, 60%-80% and the bottom 20%. However, showing thses with all states would make the charts too busy. And it is hard for the audience to explore the relationship by themselves. Therefore, we did not choose this method. 
 
 ## Development
 
@@ -35,9 +36,8 @@ We had three meetings in total for this project from begin to finish.  <br />
 Efforts		
 
 | Team Member     | Efforts                        | Aspects took the most time               |
-| :---            |    :----:                      |                                     ---: |
 | Haoyu Wang      | 25h                            | Dataset EDA and learn Altair&streamlit   |
-| Cuiting Li      | Text                           | And more                                 |
+| Cuiting Li      | 15h                          | And more                                 |
 
 Haoyu: 
 - 10/7    Dataset Discover : 3h 
@@ -46,6 +46,12 @@ Haoyu:
 - 10/10   Improve App + TA: 3h
 - 10/11   Improve App + Writeup: 6h	
 - 10/12   Finalize : 3h
+
+Cuiting:
+- 10/8    Meeting #1 + EDA : 2h
+- 10/10   Build Interaction: 5h
+- 10/11   refine Interaction: 5h
+- 10/13   Finalize and finish write-up 3h
 
 
 
@@ -57,9 +63,11 @@ The neighborhood does impact innovation in America. East and West coast have hig
 By selecting different parent income in two columns, we can clearly see that parent income has a significant impact on children invention rate. The higher income of a parent, the great possiblity that his/her children would become inventors. 
 
 ### Something interesting: 
-•	The birth year between 1960 and 1965 has the highest average number of patent grants per individual; Inventors aged around 40 are most productive based on the average number of patent grants per individual 😎.  <br />
+• The birth year between 1960 and 1965 has the highest average number of patent grants per individual; Inventors aged around 40 are most productive based on the average number of patent grants per individual 😎.  <br />
 • Massachusetts is the Drugs and Medical inventor incubator state (0.0013); And California, no surprise, is the state where Computers and Communications inventors grew up. 
+• Parent's income in the top 20% can raise almost same amount children with parents in 20-40%, 40-60%, 60-80% and bottom 20% combined together. 
 
 ### Next Steps
 - Discover Innovation Rates by College
+- Discover male and female innovator distribution in different innovation categories 
 

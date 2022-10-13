@@ -60,8 +60,8 @@ avg_grant_rate_by_state =  alt.Chart(data_sums).mark_point().encode(
                                  x=alt.X(field = "grant_rate", title='average grant rate', scale=alt.Scale(zero=False)),
                                  color = alt.Color("grant_rate:Q")
                                 ).properties(
-                                              width=900, height=800
-                                            ).add_selection(brush).interactive()
+                                    width=900, height=800
+                                ).add_selection(brush).interactive()
 
 st.write(avg_grant_rate_by_state)
 
