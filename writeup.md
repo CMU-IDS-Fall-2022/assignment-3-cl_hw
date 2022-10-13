@@ -18,11 +18,11 @@ Define a goal by reviewing the dataset, then discover insights by asking various
 ### Part1. The relationship between commuting zone & state and innovation rates
 We use a point chart to list states on the y-axis and the mean of grant_rate on the x-axis. This design helps users easily spot which state(s) has the highest average grant rate. Then we pick the top three states to dig deeper from both invention quantity and invention quality (top 5% of patent citation) perspective.
 
-### Part2. The relationship between the year of birth and innovation
-We use multiple line charts to show the relationship between birth year and the average number of patents granted per individual. By adding age as the color category, this chart shows that 1963 is the year of birth with the most average number of grants, and inventors aged 40 are the most productive. Initially, I chose point chart instead of the line chart, but it isn't easy to find insights from many data points. 
-
 ### Part3. The relationship between parent income and children innovation rate
-The intention for this part to show how parent's income affact children innovation. The original dataset divides all parent's into five categories. The top 20%, 20%-40%, 40%-60%, 60%-80% and the bottom 20%. We want our audience to make comparsion between two income categories and see the children invention rate. We make two bar chart side by side, one is reference group and another one is the experiment group. By keep the reference group the same such as choosing it as the top 20% income, and change the experiment group to 20-40%, 40-60%, 60-80% or bottom 20%, we can see the difference. By switching different group on the right column, we will able to see that the higher parent income, the higher children innovation rate. The alternative method of showing the relationship between parent income and children innovation rate is use bar chart with five column, each representing top 20%, 20%-40%, 40%-60%, 60%-80% and the bottom 20%. However, showing thses with all states would make the charts too busy. And it is hard for the audience to explore the relationship by themselves. Therefore, we did not choose this method. 
+The intention for this part to show how parent's income affact children innovation. The original dataset divides all parent's into five categories, top 20%, 20%-40%, 40%-60%, 60%-80% and the bottom 20%. We want our audience to make comparsion between two income categories to see the differences in children invention rate. We make two bar charts side by side, one is reference group and another one is the experiment group. By keep the reference group the same such as choosing it as the top 20% income, and change the experiment group to 20-40%, 40-60%, 60-80% or bottom 20%, we can see the difference. After the exoploration, our audience will fiind that the higher parent income, the higher children innovation rate. The alternative method of showing the relationship between parent income and children innovation rate is to use a bar chart with five columns, each representing top 20%, 20%-40%, 40%-60%, 60%-80% and the bottom 20%. However, showing thses with all states would make the charts too busy. And it is hard for the audience to explore the relationship by themselves. Therefore, we did not choose this method. 
+
+### Part3. The relationship between the year of birth and innovation
+We use multiple line charts to show the relationship between birth year and the average number of patents granted per individual. By adding age as the color category, this chart shows that 1963 is the year of birth with the most average number of grants, and inventors aged 40 are the most productive. Initially, I chose point chart instead of the line chart, but it isn't easy to find insights from many data points. 
 
 ## Development
 
@@ -54,9 +54,6 @@ Cuiting:
 - 10/13   Finalize and finish write-up 3h
 
 
-
-TODO: **An overview of your development process.** Describe how the work was split among the team members. Include a commentary on the development process, including answers to the following questions: Roughly how much time did you spend developing your application (in people-hours)? What aspects took the most time?
-
 ## Success Story
 
 The neighborhood does impact innovation in America. East and West coast have higher invention rates than other parts of the U.S.  Based on the interactive charts from our app, Vermont is the 1st inventor state in the U.S.  Massachusetts ranks 2nd place with a focus on the Drugs and Medical patent category. The outstanding performance in the Computers and Communications field wins California 3rd place.  <br />
@@ -69,5 +66,5 @@ By selecting different parent income in two columns, we can clearly see that par
 
 ### Next Steps
 - Discover Innovation Rates by College
-- Discover male and female innovator distribution in different innovation categories 
+- Discover male and female innovator distributions in different innovation categories 
 

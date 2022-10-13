@@ -5,8 +5,9 @@ import numpy as np
 import altair as alt
 from re import U
 
-st.title("What are the factors can impact innovation in America?")
-
+st.title("What are the factors that can impact innovation in America?")
+st.write("We will explore this question in three parts - children exposure to innovation, parent income, and the year inventors were born ")
+st.write()
 @st.cache(allow_output_mutation=True)  # add caching so we load the data only once
 def load_data(file_path):
     return pd.read_csv(file_path)
@@ -63,7 +64,7 @@ avg_grant_rate_by_state =  alt.Chart(data_sums).mark_point().encode(
                                     width=900, height=800
                                 ).add_selection(brush).interactive()
 
-st.write(avg_grant_rate_by_state)
+# st.write(avg_grant_rate_by_state)
 
 st.subheader("The top 3 states are Vermont, Masschusetts and California")
 st.markdown("*The pink line shows the overall mean")
@@ -174,8 +175,109 @@ st.subheader("Among the top 5 highly cited zones, Vermont shares 2 out of 5. And
 st.subheader("Massachusetts is the Drugs and Medical inventor incubator state (0.0013); And California, no surprise, is the state where Computers and Communications inventors grew up. ")
 
 ################################################################  Part II  ##############################################################
+st.write("")
+st.header("Part2: Correlation between Invention Rate and Parent Income")
+inventor_clean = inventor
 
-st.header("Part2. The year most inventors were born")
+cols = st.columns(2)
+with cols[0]:
+    left = st.selectbox('Parent Income 1', ['top 20%', '20 - 40%', '40 - 60%', '60 - 80%', 'bottom 20%'])
+with cols[1]:
+    right = st.selectbox('Parent Income 2', ['top 20%', '20 - 40%', '40 - 60%', '60 - 80%', 'bottom 20%'])
+
+top_20_chart = alt.Chart(inventor_clean).mark_bar().encode(
+        alt.Y(field = "inventor_pq_5", aggregate = 'average', type ='quantitative', title = 'children inventor rate', scale=alt.Scale(domain=(0.002, 0.02))),
+        alt.X("par_state", title = 'top 25 states with highest invention rate', sort = '-y'),
+).properties(
+   height=500, width=730
+).transform_window(
+    rank='rank(inventor_pq_5)',
+    sort=[alt.SortField('inventor_pq_5', order='descending')]
+).transform_filter(
+    (alt.datum.rank < 66)
+)
+
+top_20_40_chart = alt.Chart(inventor_clean).mark_bar().encode(
+        alt.Y(field = "inventor_pq_4", aggregate = 'average', type ='quantitative', title = 'children inventor rate', scale=alt.Scale(domain=(0.002, 0.02))),
+        alt.X("par_state", title = 'top 25 states with highest invention rate', sort = '-y'),
+).properties(
+   height=500, width=730
+).transform_window(
+    rank='rank(inventor_pq_4)',
+    sort=[alt.SortField('inventor_pq_4', order='descending')]
+).transform_filter(
+    (alt.datum.rank < 66)
+)
+
+top_40_60_chart = alt.Chart(inventor_clean).mark_bar().encode(
+        alt.Y(field = "inventor_pq_3", aggregate = 'average', type ='quantitative', title = 'children inventor rate', scale=alt.Scale(domain=(0.002, 0.02))),
+        alt.X("par_state", title = 'top 25 states with highest invention rate', sort = '-y'),
+).properties(
+   height=500, width=730
+).transform_window(
+    rank='rank(inventor_pq_3)',
+    sort=[alt.SortField('inventor_pq_3', order='descending')]
+).transform_filter(
+    (alt.datum.rank < 66)
+)
+
+top_60_80_chart = alt.Chart(inventor_clean).mark_bar().encode(
+        alt.Y(field = "inventor_pq_2", aggregate = 'average', type ='quantitative', title = 'children inventor rate', scale=alt.Scale(domain=(0.002, 0.02))),
+        alt.X("par_state", title = 'top 25 states with highest invention rate', sort = '-y'),
+).properties(
+   height=500, width=730
+).transform_window(
+    rank='rank(inventor_pq_2)',
+    sort=[alt.SortField('inventor_pq_2', order='descending')]
+).transform_filter(
+    (alt.datum.rank < 66)
+)
+
+bottom_20_chart =  alt.Chart(inventor_clean).mark_bar().encode(
+        alt.Y(field = "inventor_pq_1", aggregate = 'average', type ='quantitative', title = 'children inventor rate', scale=alt.Scale(domain=(0.002, 0.02))),
+        alt.X("par_state", title = 'top 25 states with highest invention rate', sort = '-y'),
+).properties(
+   height=500, width=730
+).transform_window(
+    rank='rank(inventor_pq_1)',
+    sort=[alt.SortField('inventor_pq_1', order='descending')]
+).transform_filter(
+    (alt.datum.rank < 66)
+)
+
+st.caption("*the left column serve as reference group and the right as experiment group. By changing the right coulmn, we can see the differences in children inventor rate.")
+
+colss = st.columns(2)
+with colss[0]:
+    if left == "top 20%":
+        st.write(top_20_chart)
+    elif left == "20 - 40%":
+        st.write(top_20_40_chart)
+    elif left == '40 - 60%':
+        st.write(top_40_60_chart)
+    elif left == '60 - 80%':
+        st.write(top_60_80_chart)
+    elif left == 'bottom 20%':
+        st.write(bottom_20_chart)
+        
+with colss[1]:
+    if right == "top 20%":
+        st.write(top_20_chart)
+    elif right == "20 - 40%":
+        st.write(top_20_40_chart)
+    elif right == '40 - 60%':
+        st.write(top_40_60_chart)
+    elif right == '60 - 80%':
+        st.write(top_60_80_chart)
+    elif right == 'bottom 20%':
+        st.write(bottom_20_chart)
+
+st.subheader("Conclusion: the higher parent income, the higher children innovation rate.")
+
+
+################################################################  Part III  ##############################################################
+
+st.header("Part3. The year most inventors were born")
 if st.checkbox("Hit me if you want to check on the raw data"):
     st.write(df)
 st.text("Dataset ->  Innovation by Current State, Year of Birth and Age ")
@@ -286,103 +388,7 @@ with col2:
     st.metric('Num of Grants', '{:.2%}'.format(Noslice_num_grants))
 
 
-st.write("")
-inventor_clean = inventor
-################################################################  Part III  ##############################################################
-st.header("Part3: Correlation between Invention Rate and Parent Income")
 
-cols = st.columns(2)
-with cols[0]:
-    left = st.selectbox('Parent Income 1', ['top 20%', '20 - 40%', '40 - 60%', '60 - 80%', 'bottom 20%'])
-with cols[1]:
-    right = st.selectbox('Parent Income 2', ['top 20%', '20 - 40%', '40 - 60%', '60 - 80%', 'bottom 20%'])
-
-top_20_chart = alt.Chart(inventor_clean).mark_bar().encode(
-        alt.Y(field = "inventor_pq_5", aggregate = 'average', type ='quantitative', title = 'children inventor rate', scale=alt.Scale(domain=(0.002, 0.02))),
-        alt.X("par_state", title = 'top 25 states with highest invention rate', sort = '-y'),
-).properties(
-   height=500, width=730
-).transform_window(
-    rank='rank(inventor_pq_5)',
-    sort=[alt.SortField('inventor_pq_5', order='descending')]
-).transform_filter(
-    (alt.datum.rank < 66)
-)
-
-top_20_40_chart = alt.Chart(inventor_clean).mark_bar().encode(
-        alt.Y(field = "inventor_pq_4", aggregate = 'average', type ='quantitative', title = 'children inventor rate', scale=alt.Scale(domain=(0.002, 0.02))),
-        alt.X("par_state", title = 'top 25 states with highest invention rate', sort = '-y'),
-).properties(
-   height=500, width=730
-).transform_window(
-    rank='rank(inventor_pq_4)',
-    sort=[alt.SortField('inventor_pq_4', order='descending')]
-).transform_filter(
-    (alt.datum.rank < 66)
-)
-
-top_40_60_chart = alt.Chart(inventor_clean).mark_bar().encode(
-        alt.Y(field = "inventor_pq_3", aggregate = 'average', type ='quantitative', title = 'children inventor rate', scale=alt.Scale(domain=(0.002, 0.02))),
-        alt.X("par_state", title = 'top 25 states with highest invention rate', sort = '-y'),
-).properties(
-   height=500, width=730
-).transform_window(
-    rank='rank(inventor_pq_3)',
-    sort=[alt.SortField('inventor_pq_3', order='descending')]
-).transform_filter(
-    (alt.datum.rank < 66)
-)
-
-top_60_80_chart = alt.Chart(inventor_clean).mark_bar().encode(
-        alt.Y(field = "inventor_pq_2", aggregate = 'average', type ='quantitative', title = 'children inventor rate', scale=alt.Scale(domain=(0.002, 0.02))),
-        alt.X("par_state", title = 'top 25 states with highest invention rate', sort = '-y'),
-).properties(
-   height=500, width=730
-).transform_window(
-    rank='rank(inventor_pq_2)',
-    sort=[alt.SortField('inventor_pq_2', order='descending')]
-).transform_filter(
-    (alt.datum.rank < 66)
-)
-
-bottom_20_chart =  alt.Chart(inventor_clean).mark_bar().encode(
-        alt.Y(field = "inventor_pq_1", aggregate = 'average', type ='quantitative', title = 'children inventor rate', scale=alt.Scale(domain=(0.002, 0.02))),
-        alt.X("par_state", title = 'top 25 states with highest invention rate', sort = '-y'),
-).properties(
-   height=500, width=730
-).transform_window(
-    rank='rank(inventor_pq_1)',
-    sort=[alt.SortField('inventor_pq_1', order='descending')]
-).transform_filter(
-    (alt.datum.rank < 66)
-)
-
-colss = st.columns(2)
-with colss[0]:
-    if left == "top 20%":
-        st.write(top_20_chart)
-    elif left == "20 - 40%":
-        st.write(top_20_40_chart)
-    elif left == '40 - 60%':
-        st.write(top_40_60_chart)
-    elif left == '60 - 80%':
-        st.write(top_60_80_chart)
-    elif left == 'bottom 20%':
-        st.write(bottom_20_chart)
-        
-with colss[1]:
-    if right == "top 20%":
-        st.write(top_20_chart)
-    elif right == "20 - 40%":
-        st.write(top_20_40_chart)
-    elif right == '40 - 60%':
-        st.write(top_40_60_chart)
-    elif right == '60 - 80%':
-        st.write(top_60_80_chart)
-    elif right == 'bottom 20%':
-        st.write(bottom_20_chart)
-
-st.write("By selecting different parent income in two columns, we can clearly see that parent income has a significant impact on children invention rate. The higher income of a parent, the great possiblity that his/her children would become inventors")
 
 
 st.markdown("This project was created by Cuiting Li and Haoyu Wang for the [Interactive Data Science](https://dig.cmu.edu/ids2022) course at [Carnegie Mellon University](https://www.cmu.edu).")
