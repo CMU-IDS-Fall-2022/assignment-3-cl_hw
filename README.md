@@ -11,6 +11,7 @@
 - requirements.txt : needed packages to successfully run the app
 - American_Inventor_EDA.ipynb : data exporatory analysis
 - writeup.md: description of this interactive app [goal, what kind of problems try to solve, development process, etc.]
+- Unleashing-innovation-image.jpg : credit to CMS.GOV
 
 ### Run Locally
 
