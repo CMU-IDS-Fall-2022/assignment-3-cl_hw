@@ -78,7 +78,7 @@ avg_grant_rate_by_state =  alt.Chart(data_sums).mark_point().encode(
                                     width=900, height=800
                                 ).add_selection(brush).interactive()
 
-# st.write(avg_grant_rate_by_state)
+st.write(avg_grant_rate_by_state)
 
 st.subheader("The top 3 states are Vermont, Masschusetts and California")
 st.markdown("*The pink line shows the overall mean")
