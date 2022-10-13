@@ -8,6 +8,18 @@ from PIL import Image
 
 st.title("What are the factors that can impact innovation in America?")
 image = Image.open('unleashing-innovation-image.jpg')
+# the code to center the image is referenced from  https://discuss.streamlit.io/t/how-to-center-images-latex-header-title-etc/1946/6
+col1, col2, col3 = st.beta_columns([1,6,1])
+
+with col1:
+st.write("")
+
+with col2:
+st.image(image, caption ='Innovation')
+    
+with col3:
+st.write("")
+
 st.image(image, caption ='Innovation')
 
 st.write("We will explore this question in three parts - children exposure to innovation, parent income, and the year inventors were born ")
