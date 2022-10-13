@@ -1,11 +1,8 @@
-# Project name
-![image](https://user-images.githubusercontent.com/75749274/195476987-e54a8120-7b2f-4975-9e57-b92aedbe7705.png)
-
-How social and economic factors impact innovation in America? <br />
+# How social and economic factors impact innovation in America? <br />
 We used data source from https://opportunityinsights.org/data/. Specifically, our team has focused on two main aspects - neighborhood commuting zone & parent income.
 By visualizing the relationship between commuting zone and innovation rate and parental income and their children innovation rate, we are able to conclude that neighborhood does impact innovation in America. East and West coast have higher invention rates than other parts of the U.S.  <br />
 ### Based on the interactive charts from our app, Vermont is the 1st inventor state in the U.S. 
-
+![image](https://user-images.githubusercontent.com/75749274/195476987-e54a8120-7b2f-4975-9e57-b92aedbe7705.png)
 ## Project Goals
 
 This project aims to discover how social and economic factors impact innovation in America.
