@@ -3,7 +3,6 @@ st.set_page_config(layout="wide")  # increase the width of web page
 import pandas as pd
 import altair as alt
 from re import U
-# from st_aggrid import GridOptionsBuilder, AgGrid, GridUpdateMode, DataReturnMode
 
 st.title("What are the factors can impact innovation in America?")
 
@@ -45,21 +44,28 @@ if st.checkbox("Show Raw Data"):
 st.header("Which neighborhoods in America offer children the best chance to become inventors?")
 st.subheader("Which state has the highest average number of grants per individual over the years?")
 
-brush = alt.selection(type='interval', encodings =['x'])
-bars = alt.Chart(df).mark_bar().encode(
-        x=alt.X("state", sort='y', scale=alt.Scale(zero=False)),
-        y=alt.Y(field = "num_grants", aggregate = 'mean', type ='quantitative', scale=alt.Scale(zero=False))
-    ).properties(
-        width=700, height=400
-    ).add_selection(brush).interactive()
+df['num_of_grantee'] = np.round(df['count'] * df['num_grants'],0)
+data_subset = df[["state", "count", "num_of_grantee"]]
+data_sums = data_subset.groupby("state").aggregate("sum")
+data_sums["grant_rate"] = np.round(data_sums["num_of_grantee"]/data_sums["count"], 4)
+data_sums = data_sums.reset_index()
 
+
+brush = alt.selection(type='interval', encodings =['x'])
+avg_grant_rate_by_state =  alt.Chart(data_sums).mark_point().encode(
+                                 y=alt.Y("state", sort='-x', scale=alt.Scale(zero=False)),
+                                 x=alt.X(field = "grant_rate", title='average grant rate', scale=alt.Scale(zero=False)),
+                                 color = alt.Color("grant_rate:Q")
+                                ).properties(
+                                              width=900, height=800
+                                            ).add_selection(brush).interactive()
 line = alt.Chart().mark_rule(color='pink').encode(
       y='mean(num_grants):Q',
       size=alt.SizeValue(3)
 ).transform_filter(
     brush
 )
-st.write(alt.layer(bars, line, data=df))
+st.write(alt.layer(bars, line, data=data_sums))
 
 st.subheader("The top 3 states are Vermont, Masschusetts and California")
 st.markdown("*The pink line shows the overall mean")
