@@ -5,7 +5,8 @@ By visualizing the relationship between commuting zone and innovation rate and p
 ![image](https://user-images.githubusercontent.com/75749274/195476987-e54a8120-7b2f-4975-9e57-b92aedbe7705.png)
 ## Project Goals
 
-This project aims to discover how social and economic factors impact innovation in America.
+Innovation is widely viewd as the engine of economic growth, many investments are used to develop STEM education. However, without knowing what factors induce children to become inventors, the effectiveness of STEM education is unclear. The goal of this project is to look at the relationship among child commuting zone, parental income and innovation rates by states in America. 
+
 
 ## Design
 
@@ -50,6 +51,6 @@ TODO: **An overview of your development process.** Describe how the work was spl
 
 The neighborhood does impact innovation in America. East and West coast have higher invention rates than other parts of the U.S.  Based on the interactive charts from our app, Vermont is the 1st inventor state in the U.S.  Massachusetts ranks 2nd place with a focus on the Drugs and Medical patent category. The outstanding performance in the Computers and Communications field wins California 3rd place.  <br />
 ### Fun facts: 
-•	The birth year between 1960 and 1965 has the highest average number of patent grants per individual; Inventors aged around 40 are most productive based on the average number of patent grants per individual 😎. 
+•	The birth year between 1960 and 1965 has the highest average number of patent grants per individual; Inventors aged around 40 are most productive based on the average number of patent grants per individual 😎.  <br />
 • Massachusetts is the Drugs and Medical inventor incubator state (0.0013); And California, no surprise, is the state where Computers and Communications inventors grew up. 
 
