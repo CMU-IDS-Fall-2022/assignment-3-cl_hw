@@ -4,6 +4,14 @@
 * **Online URL**: https://cmu-ids-fall-2022-assignment-3-cl-hw-streamlit-app-7dg9xa.streamlitapp.com/ 
 ## Instructions
 
+### Files included in this repo: 
+- dataset: 1) invention.csv 2) Innovation by Current State, Year of Birth and Age.csv
+- LICENSE: license info
+- streamlit_app.py : the code for building the interactive app
+- requirements.txt : needed packages to successfully run the app
+- American_Inventor_EDA.ipynb : data exporatory analysis
+- writeup.md: description of this interactive app [goal, what kind of problems try to solve, development process, etc.]
+
 ### Run Locally
 
 Check out the Streamlit [getting started](https://docs.streamlit.io/en/stable/getting_started.html) guide and setup your Python environment.
