@@ -35,9 +35,11 @@ We had three meetings in total for this project from begin to finish.  <br />
 
 Efforts		
 
+
 | Team Member     | Efforts                        | Aspects took the most time               |
+| :---            |    :----:                      |          ---:                            |
 | Haoyu Wang      | 25h                            | Dataset EDA and learn Altair&streamlit   |
-| Cuiting Li      | 15h                          | And more                                 |
+| Cuiting Li      | 15h                            | Build and Refine Interaction             |
 
 Haoyu: 
 - 10/7    Dataset Discover : 3h 
