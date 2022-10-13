@@ -4,7 +4,7 @@
 How social and economic factors impact innovation in America? <br />
 We used data source from https://opportunityinsights.org/data/. Specifically, our team has focused on two main aspects - neighborhood commuting zone & parent income.
 By visualizing the relationship between commuting zone and innovation rate and parental income and their children innovation rate, we are able to conclude that neighborhood does impact innovation in America. East and West coast have higher invention rates than other parts of the U.S.  <br />
-*Based on the interactive charts from our app, Vermont is the 1st inventor state in the U.S.  Massachusetts ranks 2nd place with a focus on the Drugs and Medical patent category. The outstanding performance in the Computers and Communications field wins California 3rd place.*
+### Based on the interactive charts from our app, Vermont is the 1st inventor state in the U.S. 
 
 ## Project Goals
 
@@ -13,17 +13,46 @@ This project aims to discover how social and economic factors impact innovation 
 ## Design
 
 Define a goal by reviewing the dataset, then discover insights by asking various hypotheses and testing them out.
-Part1. The relationship between commuting zone(/state) and innovation
-We use a bar chart to list states on the x-axis and the mean of num_grants on the y-axis (descending order). This design can help audiences easily spot which state(s) has the highest average of num_grants. At first, using the scatter plot, the bar chart is more straightforward when there are many unique values on the x-axis.   Based on a similar reason, the bar chart is used for comparing the average inventor rate by state and commuting zones. 
-Part2. The relationship between the year of born and innovation
-I use multiple line charts to show the relationship between birth year and the average number of patents granted per individual. By adding age as the color category, this chart shows that 1963 is the year of birth with the most average number of grants, and inventors aged 40 are the most productive. Initially, I chose points instead of the line, but it isn't easy to find insights from many points. 
+### Part1. The relationship between commuting zone(/state) and innovation
+We use a point chart to list states on the y-axis and the mean of grant_rate on the x-axis. This design helps audiences easily spot which state(s) has the highest average of grant rate. Then we pick the top three states to dig deeper from both invention quantity and invention quality (top cited) perspective.
 
+### Part2. The relationship between the year of born and innovation
+We use multiple line charts to show the relationship between birth year and the average number of patents granted per individual. By adding age as the color category, this chart shows that 1963 is the year of birth with the most average number of grants, and inventors aged 40 are the most productive. Initially, I chose point chart instead of the line chart, but it isn't easy to find insights from many points. 
 
 
 ## Development
+
+We had three meetings in total for this project from begin to finish.  <br />
+### Meeting 1. We made a decision on the datasets and split the workload 
+-	Cuiting: discover how parent income impact innovation
+-	Haoyu: find how childhood commuting zone and cohort impact innovation 
+### Meeting 2. Check-in on each other's progress
+### Meeting 3. Review each other's work and finalize the app
+
+Efforts		
+
+
+| Team Member     | Efforts                        | Aspects took the most time               |
+| :---            |    :----:                      |                                     ---: |
+| Haoyu Wang      | 25h                            | Dataset EDA and learn Altair&streamlit   |
+| Cuiting Li      | Text                           | And more                                 |
+
+Haoyu: 
+- 10/7    Dataset Discover : 3h 
+- 10/8    Meeting #1 + EDA : 5h
+- 10/9    Meeting #2 + Build Interactive App: 5h
+- 10/10   Improve App + TA: 3h
+- 10/11   Improve App + Writeup: 6h	
+- 10/12   Finalize : 3h
+
+
 
 TODO: **An overview of your development process.** Describe how the work was split among the team members. Include a commentary on the development process, including answers to the following questions: Roughly how much time did you spend developing your application (in people-hours)? What aspects took the most time?
 
 ## Success Story
 
-TODO:  **A success story of your project.** Describe an insight or discovery you gain with your application that relates to the goals of your project.
+The neighborhood does impact innovation in America. East and West coast have higher invention rates than other parts of the U.S.  Based on the interactive charts from our app, Vermont is the 1st inventor state in the U.S.  Massachusetts ranks 2nd place with a focus on the Drugs and Medical patent category. The outstanding performance in the Computers and Communications field wins California 3rd place.  <br />
+### Fun facts: 
+•	The birth year between 1960 and 1965 has the highest average number of patent grants per individual; Inventors aged around 40 are most productive based on the average number of patent grants per individual 😎. 
+• Massachusetts is the Drugs and Medical inventor incubator state (0.0013); And California, no surprise, is the state where Computers and Communications inventors grew up. 
+
