@@ -15,12 +15,13 @@ Innovation is widely viewd as the engine of economic growth, many investments ar
 ## Design
 
 Define a goal by reviewing the dataset, then discover insights by asking various hypotheses and testing them out.
-### Part1. The relationship between commuting zone(/state) and innovation
-We use a point chart to list states on the y-axis and the mean of grant_rate on the x-axis. This design helps audiences easily spot which state(s) has the highest average of grant rate. Then we pick the top three states to dig deeper from both invention quantity and invention quality (top cited) perspective.
+### Part1. The relationship between commuting zone & state and innovation rates
+We use a point chart to list states on the y-axis and the mean of grant_rate on the x-axis. This design helps users easily spot which state(s) has the highest average grant rate. Then we pick the top three states to dig deeper from both invention quantity and invention quality (top 5% of patent citation) perspective.
 
-### Part2. The relationship between the year of born and innovation
-We use multiple line charts to show the relationship between birth year and the average number of patents granted per individual. By adding age as the color category, this chart shows that 1963 is the year of birth with the most average number of grants, and inventors aged 40 are the most productive. Initially, I chose point chart instead of the line chart, but it isn't easy to find insights from many points. 
+### Part2. The relationship between the year of birth and innovation
+We use multiple line charts to show the relationship between birth year and the average number of patents granted per individual. By adding age as the color category, this chart shows that 1963 is the year of birth with the most average number of grants, and inventors aged 40 are the most productive. Initially, I chose point chart instead of the line chart, but it isn't easy to find insights from many data points. 
 
+### Part3. The relationship between parent income and innovation
 
 ## Development
 
@@ -32,7 +33,6 @@ We had three meetings in total for this project from begin to finish.  <br />
 ### Meeting 3. Review each other's work and finalize the app
 
 Efforts		
-
 
 | Team Member     | Efforts                        | Aspects took the most time               |
 | :---            |    :----:                      |                                     ---: |
@@ -59,4 +59,7 @@ By selecting different parent income in two columns, we can clearly see that par
 ### Something interesting: 
 •	The birth year between 1960 and 1965 has the highest average number of patent grants per individual; Inventors aged around 40 are most productive based on the average number of patent grants per individual 😎.  <br />
 • Massachusetts is the Drugs and Medical inventor incubator state (0.0013); And California, no surprise, is the state where Computers and Communications inventors grew up. 
+
+### Next Steps
+- Discover Innovation Rates by College
 
