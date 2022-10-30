@@ -63,7 +63,7 @@ By selecting different parent income in two columns, we can clearly see that par
 
 ### Something interesting: 
 • The birth year between 1960 and 1965 has the highest average number of patent grants per individual; Inventors aged around 40 are most productive based on the average number of patent grants per individual 😎.  <br />
-• Massachusetts is the Drugs and Medical inventor incubator state (0.0013); And California, no surprise, is the state where Computers and Communications inventors grew up. 
+• Massachusetts is the Drugs and Medical inventor incubator state (0.0013); And California, no surprise, is the state where Computers and Communications inventors grew up. <br />
 • Parent's income in the top 20% can raise almost same amount children with parents in 20-40%, 40-60%, 60-80% and bottom 20% combined together. 
 
 ### Next Steps
